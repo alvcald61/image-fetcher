@@ -6,7 +6,7 @@ type Props = {
   images: Photo[];
   tag?: string;
   reset: () => void;
-  showModal: (url: string) => void;
+  showModal: (image: Photo) => void;
 };
 
 const ImageList = ({ images, tag, reset, showModal }: Props) => {
@@ -15,7 +15,7 @@ const ImageList = ({ images, tag, reset, showModal }: Props) => {
       <h2 className="section-title">
         {typeof tag === "undefined" || tag.length === 0
           ? "Trending Photos Right Now"
-          : `${tag} photos`}
+          : `${decodeURIComponent(tag)} photos`}
       </h2>
       <div className="image-grid">
         {images &&

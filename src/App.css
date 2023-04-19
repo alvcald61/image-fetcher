@@ -274,10 +274,18 @@ filter: invert(1)
 
 .modal-content {
 background: rgb(188, 188, 188);
-width: 400px;
+width: 500px;
 padding: 10px 20px;
-height: 50vh;
+height: 40vh;
 margin: 20vh auto;
 position: relative;
 border-radius:10px;
+display: flex;
+flex-direction: column;
+position: relative;
+}
+
+.modal-close-button {
+  display: flex;
+  justify-content: flex-end;
 }

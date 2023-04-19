@@ -12,7 +12,7 @@ const AppProvider = ({ children }: Props) => {
   const [images, setImages] = useState<Photos>({} as Photos)
   const [tag, setTag] = useState<string| undefined>('')
   const [page, setPage] = useState<number>(1)
-  const [showModal, setShowModal] = useState<string | null>(null)
+  const [imageOfModal, setImageOfModal] = useState<Photo | null>(null)
 
 
   const value: Context = {
@@ -22,8 +22,8 @@ const AppProvider = ({ children }: Props) => {
     setTag,
     page, 
     setPage,
-    showModal, 
-    setShowModal
+    imageOfModal, 
+    setImageOfModal
   }
   return (
     <AppContext.Provider value={value}>

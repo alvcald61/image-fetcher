@@ -8,8 +8,8 @@ export const defaultValue : Context  = {
     setTag: () => {},
     page: 1,
     setPage: () => {},
-    setShowModal: () => {},
-    showModal: null,
+    setImageOfModal: () => {},
+    imageOfModal: null,
 }
 
 const AppContext = React.createContext(defaultValue);

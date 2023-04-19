@@ -7,8 +7,8 @@ export interface Context {
     setTag: (tag: string | undefined) => void;
     page: number;
     setPage : (page: number) => void;
-    showModal: string | null;
-    setShowModal: (url: string | null)=>void;
+    imageOfModal: Photo | null;
+    setImageOfModal: (url: Photo | null)=>void;
 }
 
 export interface Action {

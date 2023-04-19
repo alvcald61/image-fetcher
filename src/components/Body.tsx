@@ -6,12 +6,13 @@ import AppContext from "../context/AppContext";
 import Pagination from "./Pagination";
 import { getInterestImages } from "../services/InterestImages";
 import { getImagePerTags } from "../services/TagImages";
+import { Photo } from "../types/ImageType";
 type Props = {};
 
 const Body = (props: Props) => {
   const navigate = useNavigate();
   const context = useContext(AppContext);
-  const { tag, images, setImages, setPage, setShowModal } = context;
+  const { tag, images, setImages, setPage, setImageOfModal } = context;
 
   const onSearch = (text: string) => {
     if (text.length === 0) {
@@ -34,8 +35,8 @@ const Body = (props: Props) => {
     setPage(1);
   }
 
-  const showModal = (url: string) => {
-    setShowModal(url)
+  const showModal = (image: Photo) => {
+    setImageOfModal(image)
   }
 
   return (

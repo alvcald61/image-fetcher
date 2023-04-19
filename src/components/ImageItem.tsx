@@ -5,7 +5,7 @@ import placeholder from "../assets/placeholder-image.png";
 type Props = {
   image: Photo;
   action?: () => void;
-  showModal: (url: string) => void;
+  showModal: ((image: Photo) => void) | null;
 };
 
 const ImageItem = ({ image, action, showModal }: Props) => {
@@ -13,12 +13,13 @@ const ImageItem = ({ image, action, showModal }: Props) => {
 
 
   return (
-    <div className="image-item" onClick={()=>showModal(image.url_l || image.url_c || image.url_z || placeholder)}>
+    <div className="image-item" >
       <img
         src={image.url_l || image.url_c || image.url_z || placeholder}
         alt="image"
         className="image"
         loading="lazy"
+        onClick={()=>showModal && showModal(image)}
       />
       <div className="image-footer">
         <div className="left-info">
