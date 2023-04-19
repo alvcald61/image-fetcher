@@ -10,23 +10,31 @@ import {
 } from "react-router-dom";
 import { Photos } from "../types/ImageType";
 import AppContext from "../context/AppContext";
+import ImageModal from "../components/Modal";
 
 type Props = {};
 
 const MainPage = (props: Props) => {
   const data = useLoaderData() as Photos;
-  const setImages = useContext(AppContext).setImages;
-  const setTag = useContext(AppContext).setTag;
+  const appContext = useContext(AppContext);
+  const { setImages, setTag, showModal } = appContext;
   const location = useLocation();
+
   useEffect(() => {
     setImages(data);
     setTag(location.pathname.split("/")[2]);
   }, [data]);
+
   return (
-    <div className="App">
-      <Header />
-      <Body />
-    </div>
+    <>
+    {showModal && <ImageModal>
+      {<img src = {showModal}/>}
+      </ImageModal>}
+      <div className="App">
+        <Header />
+        <Body />
+      </div>
+    </>
   );
 };
 

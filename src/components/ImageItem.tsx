@@ -5,11 +5,15 @@ import placeholder from "../assets/placeholder-image.png";
 type Props = {
   image: Photo;
   action?: () => void;
+  showModal: (url: string) => void;
 };
 
-const ImageItem = ({ image, action }: Props) => {
+const ImageItem = ({ image, action, showModal }: Props) => {
+
+
+
   return (
-    <div className="image-item">
+    <div className="image-item" onClick={()=>showModal(image.url_l || image.url_c || image.url_z || placeholder)}>
       <img
         src={image.url_l || image.url_c || image.url_z || placeholder}
         alt="image"

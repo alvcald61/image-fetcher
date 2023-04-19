@@ -11,7 +11,7 @@ type Props = {};
 const Body = (props: Props) => {
   const navigate = useNavigate();
   const context = useContext(AppContext);
-  const { tag, images, setImages, setPage } = context;
+  const { tag, images, setImages, setPage, setShowModal } = context;
 
   const onSearch = (text: string) => {
     if (text.length === 0) {
@@ -34,14 +34,18 @@ const Body = (props: Props) => {
     setPage(1);
   }
 
+  const showModal = (url: string) => {
+    setShowModal(url)
+  }
+
   return (
     <div className="body">
       <div className="content">
         <SearchBar onSearch={onSearch} tag={tag} title="Search by tag" />
-        <ImageList tag={tag} images={images.photo} reset={reset} />
+        <ImageList tag={tag} images={images.photo} reset={reset}  showModal={showModal} />
       </div>
 
-      <Pagination onPageChange={onPageChange} maxPag={images.pages} />
+      <Pagination onPageChange={onPageChange} maxPag={images.pages}/>
     </div>
   );
 };

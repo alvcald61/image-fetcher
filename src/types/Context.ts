@@ -1,4 +1,4 @@
-import { Photos } from "./ImageType";
+import { Photos, Photo } from "./ImageType";
 
 export interface Context {
     images: Photos;
@@ -7,6 +7,8 @@ export interface Context {
     setTag: (tag: string | undefined) => void;
     page: number;
     setPage : (page: number) => void;
+    showModal: string | null;
+    setShowModal: (url: string | null)=>void;
 }
 
 export interface Action {

@@ -6,9 +6,10 @@ type Props = {
   images: Photo[];
   tag?: string;
   reset: () => void;
+  showModal: (url: string) => void;
 };
 
-const ImageList = ({ images, tag, reset }: Props) => {
+const ImageList = ({ images, tag, reset, showModal }: Props) => {
   return (
     <section className="image-list">
       <h2 className="section-title">
@@ -19,7 +20,7 @@ const ImageList = ({ images, tag, reset }: Props) => {
       <div className="image-grid">
         {images &&
           images.map((image) => {
-            return <ImageItem image={image} key={image.id} action={reset} />;
+            return <ImageItem image={image} key={image.id} action={reset} showModal={showModal}/>;
           })}
       </div>
     </section>
